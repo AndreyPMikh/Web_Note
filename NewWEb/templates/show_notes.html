@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}All notes{% endblock %}
+{% block content %}
+{% for user in users %}
+<h2>{{ user.email }}</h2>
+<ul class="list-group list-group-flush" id="notes">
+    {% for note in user.notes %}
+    <li class="list-group-item list-group-item d-flex justify-content-between">
+        <div>{{ note.data }}</div>
+        <div>
+            <form action="{{ url_for('views.delete_note', note_id=note.id) }}" method="POST" class="d-inline">
+                <button type="submit" class="btn btn-danger btn-sm">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </form>
+            <form action="{{ url_for('views.edit_note', note_id=note.id) }}" method="GET" class="d-inline">
+                <button type="submit" class="btn btn-primary btn-sm">
+                    <span class="glyphicon glyphicon-edit">Edit</span>
+                </button>
+            </form>
+            <form action="{{ url_for('views.note_history', note_id=note.id) }}" method="GET" class="d-inline">
+                <button type="submit" class="btn btn-info btn-sm">
+                    <span class="glyphicon glyphicon-time">History</span>
+                </button>
+            </form>
+        </div>
+    </li>
+    {% endfor %}
+</ul>
+{% endfor %}
+{% endblock %}

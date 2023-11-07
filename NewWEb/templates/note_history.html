@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Note History{% endblock %}
+{% block content %}
+<h1>Note History</h1>
+<p>Note: {{ note.data }}</p>
+<ul class="list-group">
+    {% for h in history %}
+    <li class="list-group-item">
+        <p>Operation: {{ h.operation_type }}</p>
+        <p>Date: {{ h.timestamp }}</p>
+        <p>User: {{ h.user.email }}</p>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
