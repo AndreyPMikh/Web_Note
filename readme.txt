@@ -12,7 +12,7 @@
 ## Установка и запуск
 
 1. Склонируйте репозиторий:
-	git clone https://github.com/your/repository.git
+	git clone https://github.com/AndreyPMikh/Web_Note/
 2. Перейдите в директорию проекта:
 	cd project-directory
 3. Создайте и активируйте виртуальное окружение:
